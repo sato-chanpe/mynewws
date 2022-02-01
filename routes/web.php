@@ -21,6 +21,8 @@ Route::post('thread/create', 'ThreadController@create');
 Route::get('thread', 'ThreadController@index');
 Route::get('thread/{thread_id}', 'ThreadController@show');
 
-Auth::routes();
+Route::post('post/create', 'PostController@create');
 
+
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

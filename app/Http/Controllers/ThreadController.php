@@ -23,16 +23,15 @@ class ThreadController extends Controller
       
       return redirect('thread/new');
   }
-  public function index(Request $request)
+  public function index()
   {
-      $cond_title = $request->cond_title;
-      if ($cond_title != '') {
-          // 検索されたら検索結果を取得する
-          $posts = Thread::where('title', $cond_title)->get();
-      } else {
-          // それ以外はすべてのニュースを取得する
-          $posts = Thread::all();
-      }
-      return view('thread.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      // すべてのニュースを取得する
+      $threads = Thread::all();
+      return view('thread.index', ['threads' => $threads, 'hoge' => "hello"]);
+  }
+  
+  public function show(Request $request)
+  {
+      return view('thread.show');
   }
 }

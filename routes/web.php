@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('thread/new', 'ThreadController@add')->middleware('auth');
 Route::post('thread/create', 'ThreadController@create');
 Route::get('thread', 'ThreadController@index');
+Route::get('thread/{thread_id}', 'ThreadController@show');
 
 Auth::routes();
 

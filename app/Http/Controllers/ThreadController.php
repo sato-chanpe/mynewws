@@ -32,6 +32,6 @@ class ThreadController extends Controller
   
   public function show(Request $request)
   {
-      return view('thread.show');
+      return view('thread.show', ['thread' => Thread::find($request->thread_id)]); //thread_idはルーティング(web.php)に定義した文字列
   }
 }

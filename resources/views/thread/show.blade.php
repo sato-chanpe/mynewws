@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{ $thread->title }}</h4>
-                <h6 class="card-subtitle mb-2 text-muted">投稿者名が入ります</h6>
+                <h6 class="card-subtitle mb-2 text-muted">投稿者名: {{ $thread->user->name }}</h6>
                 <p class="card-text">
                   {{ $thread->body }}
                 </p>
@@ -15,7 +15,7 @@
         @foreach($thread->posts as $post)
             <div class="card mt-3">
                 <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">投稿者名が入ります</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">コメントした人の名が入ります</h6>
                     <p class="card-text">
                       {{ $post->body }}
                     </p>

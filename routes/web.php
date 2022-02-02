@@ -15,11 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('thread/new', 'ThreadController@add')->middleware('auth');
-Route::post('thread/create', 'ThreadController@create');
-Route::get('thread', 'ThreadController@index');
-Route::get('thread/{thread_id}', 'ThreadController@show');
+Route::group(["prefix"=>"thread"], function(){
+    Route::group(["middleware"=>"auth"], function(){
+        Route::get('new', 'ThreadController@add');
+        Route::post('create', 'ThreadController@create');
+    });
+    Route::get('/', 'ThreadController@index');
+    Route::get('{thread_id}', 'ThreadController@show');
+});
 
 Route::post('post/create', 'PostController@create');
 

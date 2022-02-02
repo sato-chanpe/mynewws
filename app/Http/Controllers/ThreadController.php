@@ -21,7 +21,7 @@ class ThreadController extends Controller
       $thread->body = $request->body;
       $thread->save();
       
-      return redirect('thread/new');
+      return redirect('thread');
   }
   public function index()
   {

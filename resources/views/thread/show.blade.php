@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{ $thread->title }}</h4>
-                <h6 class="card-subtitle mb-2 text-muted">投稿者名: {{ $thread->user->name }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">投稿者名: {{ $thread->user->name }}  / {{ $thread->getFormatedCreatedAt() }}</h6>
                 <p class="card-text">
                   {{ $thread->body }}
                 </p>
@@ -22,6 +22,7 @@
                           {{ "ゲスト様" }}
                         @endif
                         {{-- スマートな表現：{{ $post->user ? $post->user->name : "ゲスト" }} --}}
+                         / {{$thread->getFormatedCreatedAt()}}
                     </h6> 
                     <p class="card-text">
                       {{ $post->body }}
